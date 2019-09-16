@@ -1,0 +1,17 @@
+@namespace("com.sasitha.springavrowebflux.domain")
+protocol StudentDomain{
+  record Student {
+    @java-class("java.lang.Long") long id;
+    @java-class("java.lang.String") string name;
+    @java-class("java.lang.String") string address;
+  }
+
+  record RequestHeaders {
+    @java-class("java.util.Map") map<string> headers;
+  }
+
+  Student saveStudent(RequestHeaders headers,Student student);
+  Student updateStudent(RequestHeaders headers,Student student);
+  Student getStudent(RequestHeaders headers,long id);
+  null deleteStudent(RequestHeaders headers,long id);
+}

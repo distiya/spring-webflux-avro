@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: spring-avro-webflux
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+server:
+  port: 8080
+org:
+  multitenant:
+    dataSources:
+      - countryCode: VN
+        url: jdbc:h2:~/country_vn
+        userName: sa
+        password:
+        maxPoolSize: 4
+        minIdle: 2
+      - countryCode: CN
+        url: jdbc:h2:~/country_cn
+        userName: sa
+        password:
+        maxPoolSize: 4
+        minIdle: 2
